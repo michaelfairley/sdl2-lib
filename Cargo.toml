@@ -1,0 +1,7 @@
+[package]
+name = "sdl2-lib"
+version = "0.1.0"
+authors = ["Michael Fairley <michaelfairley@gmail.com>"]
+build = "build.rs"
+
+[dependencies]
