@@ -5,7 +5,7 @@ language: rust
 
 before_install:
 - sudo apt-get update -qq
-- \[ "${TARGET}" = "asmjs-unknown-emscripten" ] && sudo apt-get install -qq emscripten && emcc -v
+- \[ "${TARGET}" = "asmjs-unknown-emscripten" ] && sudo apt-get install -qq emscripten && emcc -v && emcc -v
 
 script:
   - cargo build --target $TARGET
