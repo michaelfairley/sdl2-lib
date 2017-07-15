@@ -1,0 +1,5 @@
+script:
+  - cargo build --target $TARGET
+
+env:
+  - TARGET=asmjs-unknown-emscripten
