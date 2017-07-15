@@ -1,5 +1,5 @@
 dist: trusty
-sudo: false
+sudo: required
 
 language: rust
 
@@ -8,13 +8,14 @@ cache:
     - emscripten-sdk
 
 before_install:
-  - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
-  - \[ "${TARGET}" = "asmjs-unknown-emscripten" ]
-    && git clone --depth 1 https://github.com/ni-kismet/emscripten-sdk.git
-    && (cd emscripten-sdk && git remote update -p && git merge --ff-only origin/master)
-    && emscripten-sdk/emsdk activate --build=Release sdk-master-64bit
-    && source emscripten-sdk/emsdk_env.sh
-    && emcc -v
+- sudo apt-get update -qq
+- sudo apt-get install -qq emscripten
+  # - \[ "${TARGET}" = "asmjs-unknown-emscripten" ]
+  #   && git clone --depth 1 https://github.com/ni-kismet/emscripten-sdk.git
+  #   && (cd emscripten-sdk && git remote update -p && git merge --ff-only origin/master)
+  #   && emscripten-sdk/emsdk activate --build=Release sdk-master-64bit
+  #   && source emscripten-sdk/emsdk_env.sh
+  #   && emcc -v
 
 script:
   - cargo build --target $TARGET
