@@ -3,7 +3,12 @@ sudo: false
 
 language: rust
 
+cache:
+  directories:
+    - emscripten-sdk
+
 before_install:
+  - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
   - \[ "${TARGET}" = "asmjs-unknown-emscripten" ]
     && git clone --depth 1 https://github.com/ni-kismet/emscripten-sdk.git
     && (cd emscripten-sdk && git remote update -p && git merge --ff-only origin/master)
