@@ -1,7 +1,7 @@
 language: rust
 
 before_install:
-  - \[ "${TARGET}" = "asmjs-unknown-emscripten" ] && wget https://s3.amazonaws.com/mozilla-games/emscripten/releases/emsdk-portable.tar.gz && tar -xzf emsdk-portable.tar.gz && ./emsdk_portable/emsdk update && ./emsdk_portable/emsdk install latest && ./emsdk_portable/emsdk activate latest && source ./emsdk_portable/emsdk_env.sh
+  - \[ "${TARGET}" = "asmjs-unknown-emscripten" ] && wget https://s3.amazonaws.com/mozilla-games/emscripten/releases/emsdk-portable.tar.gz && tar -xzvf emsdk-portable.tar.gz && ./emsdk_portable/emsdk update && ./emsdk_portable/emsdk install latest && ./emsdk_portable/emsdk activate latest && source ./emsdk_portable/emsdk_env.sh
 
 script:
   - cargo build --target $TARGET
