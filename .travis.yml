@@ -3,20 +3,9 @@ sudo: required
 
 language: rust
 
-cache:
-  directories:
-    - emscripten-sdk
-
 before_install:
 - sudo apt-get update -qq
-- [ "${TARGET}" = "asmjs-unknown-emscripten" ] && sudo apt-get install -qq emscripten
-- [ "${TARGET}" = "asmjs-unknown-emscripten" ] && emcc -v
-  # - \[ "${TARGET}" = "asmjs-unknown-emscripten" ]
-  #   && git clone --depth 1 https://github.com/ni-kismet/emscripten-sdk.git
-  #   && (cd emscripten-sdk && git remote update -p && git merge --ff-only origin/master)
-  #   && emscripten-sdk/emsdk activate --build=Release sdk-master-64bit
-  #   && source emscripten-sdk/emsdk_env.sh
-  #   && emcc -v
+- [ "${TARGET}" = "asmjs-unknown-emscripten" ] && sudo apt-get install -qq emscripten && emcc -v
 
 script:
   - cargo build --target $TARGET
