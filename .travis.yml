@@ -9,8 +9,8 @@ before_install:
     && tar -xzvf emsdk-portable.tar.gz
     && ./emsdk-portable/emsdk update
     && ./emsdk-portable/emsdk list
-    && ./emsdk-portable/emsdk install clang-e1.37.16-64bit
-    && ./emsdk-portable/emsdk activate clang-e1.37.16-64bit
+    && ./emsdk-portable/emsdk install clang-e1.36.14-64bit
+    && ./emsdk-portable/emsdk activate clang-e1.36.14-64bit
     && ./emsdk-portable/emsdk install emscripten-1.37.16
     && ./emsdk-portable/emsdk activate emscripten-1.37.16
     && source ./emsdk-portable/emsdk_env.sh
