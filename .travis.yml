@@ -30,6 +30,7 @@ before_install:
     && emscripten-sdk/emsdk activate --build=Release sdk-master-64bit
     && source emscripten-sdk/emsdk_env.sh
     && emcc -v
+  - rustup install $TARGET
 
 script:
   - cargo build --target $TARGET
