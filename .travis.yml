@@ -3,6 +3,10 @@ sudo: false
 
 language: rust
 
+os:
+  - linux
+  - osx
+
 addons:
   apt:
     sources:
@@ -21,6 +25,8 @@ before_install:
 
 script:
   - cargo build --target $TARGET
+  - cd demo && cargo build --target $TARGET
 
 env:
   - TARGET=asmjs-unknown-emscripten
+  - TARGET=x86_64-apple-darwin
