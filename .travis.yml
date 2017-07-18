@@ -28,6 +28,11 @@ script:
   - cargo build --target $TARGET
   - cd demo && cargo build --target $TARGET
 
-env:
-  - TARGET=asmjs-unknown-emscripten
-  - TARGET=x86_64-apple-darwin
+matrix:
+  include:
+    - os: linux
+      env: TARGET=asmjs-unknown-emscripten
+    - os: osx
+      env: TARGET=asmjs-unknown-emscripten
+    - os: osx
+      env: TARGET=x86_64-apple-darwin
