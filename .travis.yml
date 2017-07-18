@@ -17,11 +17,12 @@ addons:
 
 before_install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
-  - \[ "${TARGET}" = "asmjs-unknown-emscripten" ]
-    && (git clone --depth 1 https://github.com/ni-kismet/emscripten-sdk.git || (cd emscripten-sdk && git remote update -p && git merge --ff-only origin/master && cd ..))
-    && emscripten-sdk/emsdk activate --build=Release sdk-master-64bit
-    && source emscripten-sdk/emsdk_env.sh
-    && emcc -v
+  - if [ "${TARGET}" = "asmjs-unknown-emscripten" ]; then
+      (git clone --depth 1 https://github.com/ni-kismet/emscripten-sdk.git || (cd emscripten-sdk && git remote update -p && git merge --ff-only origin/master && cd ..))
+      && emscripten-sdk/emsdk activate --build=Release sdk-master-64bit
+      && source emscripten-sdk/emsdk_env.sh
+      && emcc -v
+    fi
   - rustup target install $TARGET
 
 script:
