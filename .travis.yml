@@ -1,5 +1,4 @@
-
-1;95;0cdist: trusty
+dist: trusty
 sudo: false
 
 language: rust
@@ -11,9 +10,9 @@ os:
 addons:
   apt:
     sources:
-    - ubuntu-toolchain-r-test
+      - ubuntu-toolchain-r-test
     packages:
-    - g++-4.9
+      - g++-4.9
 
 before_install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
