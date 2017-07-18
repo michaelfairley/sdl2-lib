@@ -39,7 +39,31 @@ fn main() {
         cmd
           .current_dir(&out_dir)
           .env("CFLAGS", flags)
-          .env("CXXFLAGS", flags);
+          .env("CXXFLAGS", flags)
+          .env("LDFLAGS", flags);
+        run(&mut cmd);
+      }
+
+      {
+        let mut cmd = Command::new("make");
+          cmd
+          .current_dir(&out_dir);
+        run(&mut cmd);
+      }
+
+      println!("cargo:rustc-link-search=native={}/build/.libs", out_dir);
+    },
+    "i686-apple-darwin" => {
+      let flags = "-mmacosx-version-min=10.6 -DMAC_OS_X_VERSION_MIN_REQUIRED=1060 -arch i386";
+
+      {
+        let cfg = PathBuf::from(&env::var("CARGO_MANIFEST_DIR").unwrap()).join("SDL2-2.0.5/configure");
+        let mut cmd = Command::new(cfg);
+        cmd
+          .current_dir(&out_dir)
+          .env("CFLAGS", flags)
+          .env("CXXFLAGS", flags)
+          .env("LDFLAGS", flags);
         run(&mut cmd);
       }
 

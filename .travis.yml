@@ -30,3 +30,5 @@ matrix:
       env: TARGET=asmjs-unknown-emscripten
     - os: osx
       env: TARGET=x86_64-apple-darwin
+    - os: osx
+      env: TARGET=i686-apple-darwin

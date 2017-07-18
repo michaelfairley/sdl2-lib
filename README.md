@@ -8,7 +8,7 @@
 - [ ] `i386-apple-ios`
 - [ ] `i586-pc-windows-msvc`
 - [ ] `i586-unknown-linux-gnu`
-- [ ] `i686-apple-darwin`
+- [x] `i686-apple-darwin`
 - [ ] `i686-linux-android`
 - [ ] `i686-pc-windows-gnu`
 - [ ] `i686-pc-windows-msvc`
