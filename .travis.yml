@@ -3,10 +3,6 @@ sudo: false
 
 language: rust
 
-os:
-  - linux
-  - osx
-
 addons:
   apt:
     sources:
