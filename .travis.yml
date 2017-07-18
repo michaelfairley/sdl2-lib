@@ -29,6 +29,4 @@ matrix:
     - os: linux
       env: TARGET=asmjs-unknown-emscripten
     - os: osx
-      env: TARGET=asmjs-unknown-emscripten
-    - os: osx
       env: TARGET=x86_64-apple-darwin
