@@ -22,7 +22,7 @@ before_install:
       && source emscripten-sdk/emsdk_env.sh
       && emcc -v;
     fi
-  - rustup target install $TARGET
+  - (rustup toolchain list | grep $TARGET) || rustup target install $TARGET
 
 script:
   - cargo build --target $TARGET
