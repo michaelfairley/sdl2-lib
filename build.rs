@@ -99,7 +99,7 @@ fn main() {
 
       println!("cargo:rustc-link-search=native={}/build/.libs", out_dir);
     },
-    "i686-unknown-linux-gnu" | "i586-unknown-linux-gnu" => {
+    "i686-unknown-linux-gnu" => {
       let flags = "-m32";
 
       {

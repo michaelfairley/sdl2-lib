@@ -7,7 +7,6 @@
 - [x] `asmjs-unknown-emscripten`
 - [ ] `i386-apple-ios`
 - [ ] `i586-pc-windows-msvc`
-- [x] `i586-unknown-linux-gnu`
 - [x] `i686-apple-darwin`
 - [ ] `i686-linux-android`
 - [ ] `i686-pc-windows-gnu`
