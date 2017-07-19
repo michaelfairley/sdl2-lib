@@ -23,6 +23,7 @@ before_install:
 script:
   - cargo build --target $TARGET
   - cd demo && cargo build --target $TARGET
+  - cat target/i686-unknown-linux-gnu/debug/build/sdl2-lib-*/out/config.log
 
 matrix:
   include:
