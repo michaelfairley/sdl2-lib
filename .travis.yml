@@ -7,12 +7,9 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.9
-      - gcc-multilib
 
 before_install:
-  - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
+  - if [ "${TARGET}" = "asmjs-unknown-emscripten" ] && [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
   - if [ "${TARGET}" = "asmjs-unknown-emscripten" ]; then
       (git clone --depth 1 https://github.com/ni-kismet/emscripten-sdk.git || (cd emscripten-sdk && git remote update -p && git merge --ff-only origin/master && cd ..))
       && emscripten-sdk/emsdk activate --build=Release sdk-master-64bit
@@ -29,10 +26,18 @@ matrix:
   include:
     - os: linux
       env: TARGET=asmjs-unknown-emscripten
+      addons:
+        apt:
+          packages:
+            - g++-4.9
     - os: linux
       env: TARGET=x86_64-unknown-linux-gnu
     - os: linux
       env: TARGET=i686-unknown-linux-gnu
+      addons:
+        apt:
+          packages:
+            - gcc-multilib
     - os: osx
       env: TARGET=x86_64-apple-darwin
     - os: osx
