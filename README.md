@@ -1,4 +1,4 @@
-- [ ] `aarch64-apple-ios`
+- [x] `aarch64-apple-ios`
 - [ ] `aarch64-linux-android`
 - [ ] `arm-linux-androideabi`
 - [ ] `armv7-apple-ios`
