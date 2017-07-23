@@ -42,3 +42,5 @@ matrix:
       env: TARGET=x86_64-apple-darwin
     - os: osx
       env: TARGET=i686-apple-darwin
+    - os: osx
+      env: TARGET=i386-apple-ios

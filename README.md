@@ -5,7 +5,7 @@
 - [ ] `armv7-linux-androideabi`
 - [ ] `armv7s-apple-ios`
 - [x] `asmjs-unknown-emscripten`
-- [ ] `i386-apple-ios`
+- [x] `i386-apple-ios`
 - [ ] `i586-pc-windows-msvc`
 - [x] `i686-apple-darwin`
 - [ ] `i686-linux-android`
