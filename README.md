@@ -15,7 +15,7 @@
 - [ ] `i686-unknown-linux-musl`
 - [ ] `wasm32-unknown-emscripten`
 - [x] `x86_64-apple-darwin`
-- [ ] `x86_64-apple-ios`
+- [x] `x86_64-apple-ios`
 - [ ] `x86_64-linux-android`
 - [ ] `x86_64-pc-windows-gnu`
 - [ ] `x86_64-pc-windows-msvc`

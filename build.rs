@@ -141,6 +141,25 @@ fn main() {
 
       println!("cargo:rustc-link-search=native={}", artifact_dir);
     },
+    "x86_64-apple-ios" => {
+      let artifact_dir = format!("{}/build", out_dir);
+      {
+        let proj_dir = PathBuf::from(&env::var("CARGO_MANIFEST_DIR").unwrap()).join("SDL2-2.0.5/Xcode-iOS/SDL/SDL.xcodeproj");
+
+        let mut cmd = Command::new("xcodebuild");
+        cmd
+          .current_dir(&out_dir)
+          .args(&["-configuration", "Release"])
+          .args(&["-arch", "x86_64"])
+          .args(&["-sdk", "iphonesimulator"])
+          .args(&["-target", "libSDL"])
+          .args(&["-project", proj_dir.to_str().unwrap()])
+          .arg(format!("CONFIGURATION_BUILD_DIR={}", artifact_dir));
+        run(&mut cmd);
+      }
+
+      println!("cargo:rustc-link-search=native={}", artifact_dir);
+    },
     other => panic!("sdl2-lib is not implemented for {}", other),
   }
 }
