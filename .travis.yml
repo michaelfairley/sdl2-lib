@@ -3,11 +3,6 @@ sudo: false
 
 language: rust
 
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-
 before_install:
   - if [ "${TARGET}" = "asmjs-unknown-emscripten" ] && [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
   - if [ "${TARGET}" = "asmjs-unknown-emscripten" ]; then
@@ -28,6 +23,8 @@ matrix:
       env: TARGET=asmjs-unknown-emscripten
       addons:
         apt:
+          sources:
+            - ubuntu-toolchain-r-test
           packages:
             - g++-4.9
     - os: linux
