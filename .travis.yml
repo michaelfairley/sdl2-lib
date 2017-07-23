@@ -10,6 +10,8 @@ before_install:
       (git clone --depth 1 https://github.com/ni-kismet/emscripten-sdk.git || (cd emscripten-sdk && git remote update -p && git merge --ff-only origin/master && cd ..))
       && ./emscripten-sdk/emsdk list
       && ./emscripten-sdk/emsdk activate --build=Release sdk-master-64bit
+      && ./emscripten-sdk/emsdk install clang-tag-e1.37.12-64bit
+      && ./emscripten-sdk/emsdk activate clang-tag-e1.37.12-64bit
       && ./emscripten-sdk/emsdk list
       && source emscripten-sdk/emsdk_env.sh
       && emcc -v;
