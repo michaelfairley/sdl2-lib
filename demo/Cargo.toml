@@ -4,6 +4,5 @@ version = "0.1.0"
 authors = ["Michael Fairley <michaelfairley@gmail.com>"]
 
 [dependencies]
-# sdl2 = "*"
-sdl2 = { path = "../../../os/rust-sdl2" }
+sdl2 = "*"
 sdl2-lib = { path = "../" }
