@@ -9,11 +9,7 @@ before_install:
       wget https://s3.amazonaws.com/mozilla-games/emscripten/releases/emsdk-portable.tar.gz
       && tar -xvf emsdk-portable.tar.gz
       && ./emsdk-portable/emsdk update
-      && ./emsdk-portable/emsdk list
-      && ./emsdk-portable/emsdk install clang-tag-e1.37.16-64bit
-      && ./emsdk-portable/emsdk activate clang-tag-e1.37.16-64bit
-      && ./emsdk-portable/emsdk install emscripten-tag-1.37.16-64bit
-      && ./emsdk-portable/emsdk activate emscripten-tag-1.37.16-64bit
+      && ./emsdk-portable/emsdk activate --build=Release sdk-master-64bit
       && source emsdk-portable/emsdk_env.sh
       && emcc -v;
     fi
