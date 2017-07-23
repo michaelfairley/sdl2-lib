@@ -1,0 +1,14 @@
+[target.aarch64-apple-ios]
+rustflags = ["-C", "link_arg=-miphoneos-version-min=6.0"]
+
+[target.armv7-apple-ios]
+rustflags = ["-C", "link_arg=-miphoneos-version-min=6.0"]
+
+[target.armv7s-apple-ios]
+rustflags = ["-C", "link_arg=-miphoneos-version-min=6.0"]
+
+[target.i386-apple-ios]
+rustflags = ["-C", "link_arg=-miphoneos-version-min=6.0"]
+
+[target.x86_64-apple-ios]
+rustflags = ["-C", "link_arg=-miphoneos-version-min=6.0"]

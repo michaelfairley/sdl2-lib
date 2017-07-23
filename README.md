@@ -1,9 +1,9 @@
 - [x] `aarch64-apple-ios`
 - [ ] `aarch64-linux-android`
 - [ ] `arm-linux-androideabi`
-- [ ] `armv7-apple-ios`
+- [x] `armv7-apple-ios`
 - [ ] `armv7-linux-androideabi`
-- [ ] `armv7s-apple-ios`
+- [x] `armv7s-apple-ios`
 - [x] `asmjs-unknown-emscripten`
 - [x] `i386-apple-ios`
 - [ ] `i586-pc-windows-msvc`
