@@ -6,9 +6,12 @@ language: rust
 before_install:
   - if [ "${TARGET}" = "asmjs-unknown-emscripten" ] && [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
   - if [ "${TARGET}" = "asmjs-unknown-emscripten" ]; then
-      (git clone --depth 1 https://github.com/ni-kismet/emscripten-sdk.git || (cd emscripten-sdk && git remote update -p && git merge --ff-only origin/master && cd ..))
-      && emscripten-sdk/emsdk activate --build=Release sdk-master-64bit
-      && source emscripten-sdk/emsdk_env.sh
+      wget https://s3.amazonaws.com/mozilla-games/emscripten/releases/emsdk-portable.tar.gz
+      && tar -xvf emsdk-portable.tar.gz
+      && ./emsdk-portable/emsdk update
+      && ./emsdk-portable/emsdk install latest
+      && ./emsdk-portable/emsdk activate latest
+      && source emsdk-portable/emsdk_env.sh
       && emcc -v;
     fi
   - (rustup toolchain list | grep $TARGET) || rustup target install $TARGET
