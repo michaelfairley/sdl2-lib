@@ -7,10 +7,8 @@ language: rust
 before_install:
   - if [ "${TARGET}" = "asmjs-unknown-emscripten" ] && [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
   - if [ "${TARGET}" = "asmjs-unknown-emscripten" ]; then
-      (git clone --depth 1 https://github.com/ni-kismet/emscripten-sdk.git || (cd emscripten-sdk && git remote update -p && git merge --ff-only origin/master && cd ..))
-      && ./emscripten-sdk/emsdk list
+      (git clone --depth 1 https://github.com/urho3d/emscripten-sdk.git || (cd emscripten-sdk && git remote update -p && git merge --ff-only origin/master && cd ..))
       && ./emscripten-sdk/emsdk activate --build=Release sdk-master-64bit
-      && ./emscripten-sdk/emsdk list
       && source emscripten-sdk/emsdk_env.sh
       && emcc -v;
     fi
@@ -30,9 +28,6 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-4.9
-      cache:
-        directories:
-        - emscripten-sdk
     - os: linux
       env: TARGET=x86_64-unknown-linux-gnu
     - os: linux
