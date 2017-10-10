@@ -219,6 +219,8 @@ fn main() {
     },
     other => panic!("sdl2-lib is not implemented for {}", other),
   }
+
+  println!("cargo:rerun-if-changed=build.rs");
 }
 
 fn run(cmd: &mut Command) {
